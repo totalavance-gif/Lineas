@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asesoría para Registro de Líneas Telefónicas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: white;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #dcdcdc;
+    }
+
+    .contenedor {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background: #25D366;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1da851;
+    }
+
+    .costo {
+      background: #e8f4ff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      border-left: 4px solid #0066cc;
+    }
+
+    .aviso {
+      background: #f5f5f5;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #ccc;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Asesoría de Registro</h1>
+<h2>Líneas Telefónicas</h2>
+
+<div class="contenedor">
+
+  <div class="costo">
+    💰 <strong>Costo del servicio:</strong><br>
+    Asesoría con precio fijo de <strong>$50 MXN</strong>
+  </div>
+
+  <div class="aviso">
+    <strong>Aviso de Privacidad</strong><br><br>
+    Los datos proporcionados serán utilizados únicamente para brindar asesoría
+    en el registro de líneas telefónicas, conforme a la legislación vigente.
+  </div>
+
+  <form>
+
+    <label>Nombre completo</label>
+    <input type="text" id="nombre" required>
+
+    <label>Número de teléfono</label>
+    <input type="tel" id="telefono" required>
+
+    <label>Compañía telefónica</label>
+    <select id="compania" required>
+      <option value="">Seleccionar compañía</option>
+      <option>Telcel</option>
+      <option>AT&T</option>
+      <option>Movistar</option>
+      <option>Unefon</option>
+      <option>Virgin Mobile</option>
+      <option>BAIT</option>
+      <option>FreedomPop</option>
+      <option>Weex</option>
+      <option>Oxxo Cel</option>
+      <option>Izzi Móvil</option>
+      <option>Megacable Móvil</option>
+      <option>Newww</option>
+      <option>Otra</option>
+    </select>
+
+    <label>¿Cuenta con INE vigente?</label>
+    <select id="ine" required>
+      <option value="">Seleccionar opción</option>
+      <option>Sí</option>
+      <option>No</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="consentimiento">
+      Acepto el aviso de privacidad y el costo del servicio
+    </label>
+
+    <button type="button" id="btnWhatsapp">
+      📲 Solicitar asesoría por WhatsApp
+    </button>
+
+  </form>
+</div>
+
+<div class="footer">
+  Servicio de asesoría independiente • No afiliado a operadores
+</div>
+
+<script>
+  document.getElementById("btnWhatsapp").addEventListener("click", function () {
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const compania = document.getElementById("compania").value;
+    const ine = document.getElementById("ine").value;
+    const consentimiento = document.getElementById("consentimiento").checked;
+
+    if (!nombre || !telefono || !compania || !ine || !consentimiento) {
+      alert("Por favor completa todos los campos y acepta las condiciones.");
+      return;
+    }
+
+    const numeroWhatsApp = "525539862965"; // ✅ TU NÚMERO
+
+    const mensaje = encodeURIComponent(
+`📋 Solicitud de Asesoría
+
+Nombre: ${nombre}
+Teléfono: ${telefono}
+Compañía: ${compania}
+Cuenta con INE: ${ine}
+
+Costo del servicio: $50 MXN`
+    );
+
+    window.open("https://wa.me/" + numeroWhatsApp + "?text=" + mensaje, "_blank");
+  });
+</script>
+
+</body>
+</html>
